@@ -1,4 +1,4 @@
-#include "lists.h"
+#include "list.h"
 #include <stdio.h>
 
 /**
@@ -7,26 +7,22 @@
   *
   * Return: 1 if has a cycle in it or 0 if not
   */
+
 int check_cycle(listint_t *list)
 {
-	listint_t *turtle = list, *hare = list;
-	int found = 0;
+	listint_t *slow = list;
+	listint_t *fast = list;
 
-	while ((turtle && hare) && hare->next)
-	{		
-		turtle = turtle->next;
+	if (!list)
+		return (0);
 
-		if (hare->next || hare->next->next)	
-			hare = hare->next->next;
-		else
-			break;
-
-		if (turtle == hare)
-		{
-			found = 1;
-			break;
-		}
+	while (slow && fast && fast->next)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+		if (slow == fast)
+			return (1);
 	}
 
-	return (found);
+	return (0);
 }
