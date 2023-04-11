@@ -1,14 +1,12 @@
 #!/usr/bin/python3
-def is_kind_of_class(obj, a_class):
-    """
-    Checks if `obj` is the same class or inherit from `a_class`
-    Args:
-        obj (any): The object to compare
-        a_class (any): The class to compare with the object
-    Returns:
-        `True` if the object is an instance or inherit from the
-        specified class; otherwise `False`
-    """
+"""checks if object is an instance of a class
+or an inherited class
+"""
 
-    return isinstance(obj, a_class)
+
+def is_kind_of_class(obj, a_class):
+    """returns true if object is an instance of a class
+    or a class that the class in question inherits from
+    """
+    return (isinstance(obj, a_class))
 
